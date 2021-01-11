@@ -1,16 +1,15 @@
 import React from 'react';
-import {Text, View, Image} from 'react-native';
+import {Text, View, ScrollView,Image} from 'react-native';
 
 const Body = () => {
     return(
-        <View style={{alignItems:'center',padding:10}}>
-        <Text>Conteúdo do App</Text>
-        <Text>Minha Imagem</Text>
-          <Image style ={{width:100,height:100}}
-            source={{
-              uri: 'https://reactnative.dev/img/tiny_logo.png'
-            }}
-          />
+        <View style={{flex:1,flexDirection:'row',flexWrap:'wrap',padding:30}}>
+          <Image style ={{width:85,height:85}}
+          source={{
+            uri: 'https://reactnative.dev/img/tiny_logo.png'
+          }}
+        />
+        <Text style={{width:'70%', paddingLeft:20,paddingRight:20}}>Texto</Text>
         </View>
     );
   }
