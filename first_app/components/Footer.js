@@ -1,12 +1,22 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 
 const Footer = () => {
     return(
-        <View style={{marginBottom:0,backgroundColor:'#ff9640', padding:5, width:'100%'}}>
-            <Text style={{textAlign:'center',fontSize:15,fontWeight:'bold',color:'white'}}>Rodapé</Text>
+        <View style={{}}>
+            <Text style={styles.foot}>Rodapé</Text>
         </View>
     );
   }
 
+  const styles = StyleSheet.create({
+
+    foot:{
+        marginBottom:0,
+        backgroundColor:'#ff9640',
+        padding:5,
+        width:'100%'
+    }
+    
+  });
 export default Footer;
