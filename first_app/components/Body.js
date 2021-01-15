@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, View, ScrollView, Image, StyleSheet} from 'react-native';
+import externStyles from '../styles.js'
 
 const Body = () => {
     return(
@@ -9,7 +10,7 @@ const Body = () => {
             uri: 'https://reactnative.dev/img/tiny_logo.png'
           }}
         />
-        <Text style={styles.text}>Texto</Text>
+        <Text style={externStyles.fontStyle}> Texto</Text>
         </View>
     );
   }

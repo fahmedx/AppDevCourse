@@ -9,8 +9,8 @@ export default class App extends React.Component{
     render(){
       return (
       <ScrollView style={{marginTop:20,flex:1}}>
-          <Header/>
-          <Body/>
+          <Header></Header>
+          <Body></Body>
       </ScrollView>
       );
     }
