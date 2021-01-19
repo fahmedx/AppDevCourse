@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     flex:1,
     flexDirection:'row',
     flexWrap:'wrap',
-    padding:30
+    padding:30,
+    backgroundColor:'#808080'
   },
   text:{
     width:'70%', 
