@@ -16,11 +16,6 @@ export default class App extends React.Component{
     }
 
       showContent(){
-//        return(
-//          <View>
-//            <Text>{Platform.OS}</Text>
-//          </View>
-//        );
        if(this.showHeader && this.showBody){
          return(
            <View>
@@ -82,3 +77,9 @@ export default class App extends React.Component{
 // }
 // </ScrollView>
 // );
+
+//        return(
+//          <View>
+//            <Text>{Platform.OS}</Text>
+//          </View>
+//        );
