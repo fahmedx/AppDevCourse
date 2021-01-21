@@ -1,26 +1,20 @@
 import React from 'react';
-import {Text, View, ScrollView, Image, StyleSheet} from 'react-native';
+import {Text, View, ScrollView, Image, StyleSheet, Button} from 'react-native';
 import externStyles from '../styles.js'
 
-export default class Body extends React.Component{
-  constructor(props){
-    super(props);
-    this.name = "name";
-  }
+const Body = (props)=>{
 
-  callname(){
-    return(<Text>{this.name}</Text>);
-  }
-
-  render(){
+    //function teste(){
+    //  return(<Text>Test</Text>);
+    //}
     return(
       <View>
-        <Text>{this.name}</Text>
+        <Text style={{alignSelf:'center'}}>{props.texto}</Text>
       </View>
-    )
-  }
-
+    );
 }
+
+export default Body;
 
 //const Body = () => {
 //    return(

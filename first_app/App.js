@@ -9,19 +9,50 @@ import Constants from 'expo-constants';
 export default class App extends React.Component{
     constructor(props){
       super(props);
-      this.body = new Body();
-      this.body.name = "Joseph";
-    }
-    
-    render(){
-      console.log(this.body.name);
 
-      return(
-        <View style={{backgroundColor:'white'}}>
-          <StatusBar hidden/>
-          {this.body.callname()}
-        </View>
-      );
+      this.state = {
+        count: 0,
+        page:'home'
+      }
+    }
+
+    countAdd = () =>{
+      this.setState({count:this.state.count+1});
+    }
+
+    goBack = () =>{
+      this.setState({page:'home'});
+    }
+
+    changeView = () =>{
+      this.setState({page:'other'});
+    }
+
+    render(){
+      if(this.state.page=="home"){
+          return(
+            <View style={{backgroundColor:'white'}}>
+              <StatusBar hidden/>
+              <Header></Header>
+              <Body texto="Count++:" ></Body>
+              <Button title="Count++" onPress={()=>this.countAdd()}></Button>
+              <Text style={{alignSelf:'center'}}>{this.state.count}</Text>
+              <Body texto="Change View:" ></Body>
+              <Button title="Change" onPress={()=>this.changeView()}></Button>
+              <Text style={{alignSelf:'center'}}>Home</Text>
+            </View>
+          );
+      }else if(this.state.page=="other"){
+        return(
+            <View style={{backgroundColor:'white'}}>
+                  <StatusBar hidden/>
+                  <Header></Header>
+                  <Body texto="Change View:" ></Body>
+                  <Button title="Go Back" onPress={()=>this.goBack()}></Button>
+                  <Text style={{alignSelf:'center'}}>Other Page</Text>
+            </View>
+        );
+      }
     }
 
 }
