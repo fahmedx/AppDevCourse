@@ -1,61 +1,91 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, Image, Button, ScrollView, Platform } from 'react-native';
 import Header from './components/Header.js'
 import Body from './components/Body.js'
 import Footer from './components/Footer.js'
 import Constants from 'expo-constants';
 
-export default class App extends React.Component{
-    constructor(props){
-      super(props);
+export default function App(){
+  //read/set
+  const [count,setCount] = useState(0);
 
-      this.state = {
-        count: 0,
-        page:'home'
-      }
-    }
+  const [name,setName] = useState("Jorje");
 
-    countAdd = () =>{
-      this.setState({count:this.state.count+1});
-    }
+  const [list,setList] = useState(['Rice','beans','bread','meat']);
 
-    goBack = () =>{
-      this.setState({page:'home'});
-    }
+  return(
+      <View style={{backgroundColor:'white'}}>
+                <StatusBar hidden/>
+                <Header></Header>
+                <Body texto="Count++:" ></Body>
+                <Button title="Count++" onPress={()=>setCount(count+1)}></Button>
+                <Text style={{alignSelf:'center'}}>{count}</Text>
+                <Button title="Name" onPress={()=>setName("Jorjão")}></Button>
+                <Text style={{alignSelf:'center'}}>{name}</Text>
+                <Button title="List" onPress={()=>setList([...list,'salad'])}></Button>
+                {
+                  list.map((val)=>{
+                    return(<Text>{val}</Text>);
+                  })  
+                }
+      </View>
 
-    changeView = () =>{
-      this.setState({page:'other'});
-    }
-
-    render(){
-      if(this.state.page=="home"){
-          return(
-            <View style={{backgroundColor:'white'}}>
-              <StatusBar hidden/>
-              <Header></Header>
-              <Body texto="Count++:" ></Body>
-              <Button title="Count++" onPress={()=>this.countAdd()}></Button>
-              <Text style={{alignSelf:'center'}}>{this.state.count}</Text>
-              <Body texto="Change View:" ></Body>
-              <Button title="Change" onPress={()=>this.changeView()}></Button>
-              <Text style={{alignSelf:'center'}}>Home</Text>
-            </View>
-          );
-      }else if(this.state.page=="other"){
-        return(
-            <View style={{backgroundColor:'white'}}>
-                  <StatusBar hidden/>
-                  <Header></Header>
-                  <Body texto="Change View:" ></Body>
-                  <Button title="Go Back" onPress={()=>this.goBack()}></Button>
-                  <Text style={{alignSelf:'center'}}>Other Page</Text>
-            </View>
-        );
-      }
-    }
-
+  )
 }
+
+//export default class App extends React.Component{
+//    constructor(props){
+//      super(props);
+//
+//      this.state = {
+//        count: 0,
+//        page:'home'
+//      }
+//    }
+//
+//
+//    countAdd = () =>{
+//      this.setState({count:this.state.count+1});
+//    }
+//
+//    goBack = () =>{
+//      this.setState({page:'home'});
+//    }
+//
+//    changeView = () =>{
+//      this.setState({page:'other'});
+//    }
+//
+//    render(){
+//      if(this.state.page=="home"){
+//          return(
+//            <View style={{backgroundColor:'white'}}>
+//              <StatusBar hidden/>
+//              <Header></Header>
+//              <Body texto="Count++:" ></Body>
+//              <Button title="Count++" onPress={()=>this.countAdd()}></Button>
+//              <Text style={{alignSelf:'center'}}>{this.state.count}</Text>
+//              <Body texto="Change View:" ></Body>
+//              <Button title="Change" onPress={()=>this.changeView()}></Button>
+//              <Text style={{alignSelf:'center'}}>Home</Text>
+//            </View>
+//          );
+//      }else if(this.state.page=="other"){
+//        return(
+//            <View style={{backgroundColor:'white'}}>
+//                  <StatusBar hidden/>
+//                  <Header></Header>
+//                  <Body texto="Change View:" ></Body>
+//                  <Button title="Go Back" onPress={()=>this.goBack()}></Button>
+//                  <Text style={{alignSelf:'center'}}>Other Page</Text>
+//            </View>
+//        );
+//      }
+//    }
+//
+//}
 
 //const NormalButton = () =>{
 //  return(
